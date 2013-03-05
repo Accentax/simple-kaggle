@@ -1,0 +1,40 @@
+<template name="board">
+  <div class="row" id="highscores">
+    <div class="span12">
+  	  <h1>High Scores</h1>
+  	  <table class="table">
+  	    <thead>
+    	    <tr>
+    	      <th class="span4">Student</th>
+    	      <th class="span2">Claimed Error Rate</th>
+    	      <th class="span2">When</th>
+    	      <th class="span4">Comment</th>
+    	    </tr>
+  	    </thead>
+  	    <tbody>
+  	      {{#each scores }}
+  	        {{> row}}
+  	      {{/each}}
+  	    </tbody>
+      </table>
+  	</div>
+  </div>
+</template>
+
+<template name="row">
+  <tr>
+    <td>{{ name }}</td>
+    <td class="text-right">{{ score }}&nbsp;%</td>
+    <td>{{ when }}</td>
+    <td>
+      {{#if longComment}}
+      <a rel="collapse" data-toggle="collapse" data-target="#{{ _id}}">{{ comment }}&hellip;</a>
+      <div id="{{ _id }}" class="collapse">
+        {{{ fullComment }}}
+      </div>
+      {{else}}
+        {{comment}}
+      {{/if}}
+    </td>
+  </tr>
+</template>

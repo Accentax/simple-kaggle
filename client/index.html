@@ -1,0 +1,70 @@
+<head>
+  <title>Coursera Data Analysis - Simple Kaggle</title>
+</head>
+
+<body>
+  {{> main}}
+</body>
+
+<template name="main">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Simple Kaggle</a>
+        <ul class="nav">
+          <li><a href="#highscores">High Scores</a></li>
+          <li><a href="#post">Post your result</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {{> intro}}
+  <div class="container">
+	  {{> board}}
+	  <hr>
+	  {{> form }}
+  </div>
+  <div class="container">
+    <hr>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="span2">
+
+          </div>
+          <div class="span8" style="vertical-align:middle; height:100%;">
+            <small>
+              <p class="text-warning">Disclaimer: This site is in no way affiliated or endorsed by Coursera, the Data Analysis teachers, assistants or John Hopkins University.</p>
+              <p>Built for fun by <a href="http://www.sarfata.org/">Thomas Sarlandie</a>. <a href="http://www.github.com/sarfata/simple-kaggle">Source code</a> released under the MIT open-source license. Please post comments and suggestions on the Coursera boards or on this project <a href="http://www.github.com/sarfata/simple-kaggle/issues">Github issues page</a>. 
+<br/>
+            This site is built with the <a href="http://www.meteor.com/">Meteor</a> framework and uses <a href="http://twitter.github.com/bootstrap/">Twitter bootstrap</a>.
+            </p>
+            </small>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+  </div>
+
+</template>
+
+<template name="intro">
+  <div class="hero-unit">
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          <h1>Let's have a friendly competition!</h1>
+          <p>So you have been working hard on assignment 2 to get the best predictive model? Let's see how well it compares with the model of other students.</p>
+        </div>
+        <div class="span4 offset2" style="margin-top:50px;">
+          <a href="#highscores" class="btn btn-primary btn-large btn-block">Check out the high scores</a>
+          <a href="#post" class="btn btn-large btn-block">Post your own result</a>
+          <br/>
+          <a href="https://class.coursera.org/dataanalysis-001/class/index" target="_blank" class="btn btn-block btn-large">What is this Data Analysis class?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

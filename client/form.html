@@ -1,0 +1,68 @@
+<template name="form">
+  <div class="row" id="post">
+    <div class="span12">
+      <h1>Submit your current best-result!</h1>
+  	</div>
+    <div class="span6">
+      <p>
+        If we want to compare our results, we need to prepare them in a similar way. The following functions will take your predictor and calculate an error rate on a given test set.</p>
+        <pre>
+evaluate = function(predictor, testSet) {
+  results = predictor(testSet)
+  errorRate = results != testSet$activity
+  return(sum(errorRate) / length(errorRate))
+}</pre>
+      <p>For example if you have one of the following predictor, this how to use it:</p>
+      <pre>cheatingPredictor = function(data) {
+  return(data$activity)
+}
+dumbPredictor = function(data) {
+  return("laying")
+}
+evaluate(cheatingPredictor, trainData)
+> [1] 0
+evaluate(dumbPredictor, trainData)
+> [1] 0.8319392</pre>
+      <p>Post the resulting values in the form and that's it!</p>
+
+      <p>Note: you should not use the test data unless you are done with the project! You can write in the comments what type of test data you have used.</p>
+      <p class="text-info">If anyone wants to suggest a better way to do this, please let me know and I will update this page.</p>
+
+    </div>
+    
+    <div class="span6" style="margin-top:50px;">
+  	  {{#if hasErrors}}
+  	    <p class="text-error">
+  	      {{{errors}}}
+  	    </p>
+  	  {{/if}}
+  	  <form name="addScore" class="form-horizontal">
+  	    <div class="control-group">
+  	      <label class="control-label">Name</label>
+  	      <div class="controls">
+  	        <input type="text" name="name">
+            <span class="help-block">You dont have to - but it looks better in the high scores ;)</small></span>
+  	      </div>
+  	    </div>
+  	    <div class="control-group">
+  	      <label class="control-label">Error Rate</label>
+  	      <div class="controls">
+            <input type="text" name="score">
+            <span class="help-block">A number between 0 and 1.</small></span>
+  	      </div>
+  	        
+  	    </div>
+  	    <div class="control-group">
+  	      <label class="control-label">Any comments you would like to share?</label>
+  	      <div class="controls">  	    
+      	    <textarea rows="3" class="span4" name="comment"></textarea>
+      	    <span class="help-block">Remember not to post any results, code samples or anything that would 'too helpful'. Limit yourself to the type of methods, or the number of folds you used for sampling (just like you would in the forums).</small></span>
+      	  </div>
+  	    </div>
+  	    <div class="form-actions">
+  	      <button type="submit" class="btn btn-primary btn-large">Submit!</button>
+  	    </div>
+  	  </form>
+  	</div>
+  </div>
+</template>
