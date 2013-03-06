@@ -18,7 +18,7 @@ Template.form.events({
       Session.set("form-errors", false);
     }
     
-    Scores.insert({'name': name, 'score': score, 'comment': comment});
+    Scores.insert({'name': name, 'score': score, 'comment': comment, 'when': new Date()});
     mixpanel.track("Score submitted");
     return false;
   }
